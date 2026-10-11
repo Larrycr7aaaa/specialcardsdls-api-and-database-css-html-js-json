@@ -1,0 +1,520 @@
+/* ================================= */
+/* RESET */
+/* ================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #eef2f7;
+    color: #333;
+}
+
+/* ================================= */
+/* HEADER & REPRODUCTOR */
+/* ================================= */
+
+header {
+    background: linear-gradient(90deg, #00ffff, #ff0055);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px 40px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo h1 {
+    font-size: 2rem;
+}
+
+.logo p {
+    opacity: .8;
+}
+
+/* Mini Reproductor de Música */
+.music-player {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: linear-gradient(90deg, #00ffff, #ff0055);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 35px;
+}
+
+.music-info {
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.music-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.music-controls select {
+    padding: 6px 10px;
+    border-radius: 6px;
+    border: none;
+    font-size: 0.85rem;
+    background: #ffffff;
+    color: #212121;
+    outline: none;
+    cursor: pointer;
+}
+
+.music-controls button {
+    border: none;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #212121;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.2s;
+}
+
+.music-controls button:hover {
+    background: #000;
+}
+
+/* ================================= */
+/* BUSCADOR */
+/* ================================= */
+
+.search {
+    display: flex;
+    gap: 20px;
+}
+
+.search input {
+    width: 270px;
+    padding: 16px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+.search button {
+    border: none;
+    padding: 16px 24px;
+    border-radius: 10px;
+    background: linear-gradient(90deg, #00ffff, #ff0055);
+    color: white;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.search button:hover {
+    background: #111;
+}
+
+/* ================================= */
+/* MAIN */
+/* ================================= */
+
+main {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 25px;
+    padding: 30px;
+}
+
+/* ================================= */
+/* LISTA DE JUGADORES */
+/* ================================= */
+
+.section-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+#playerCounter {
+    font-weight: bold;
+    color: #ef5350;
+}
+
+/* ================================= */
+/* GRID DE CARTAS */
+/* ================================= */
+
+#playerContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+/* ================================= */
+/* TARJETAS */
+/* ================================= */
+
+.card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, .15);
+    transition: box-shadow 0.3s ease;
+}
+
+.card:hover {
+    box-shadow: 0 12px 25px rgba(0, 0, 0, .22);
+}
+
+.card-body {
+    padding: 18px;
+}
+
+.card-body h3 {
+    margin: 8px 0;
+    text-transform: capitalize;
+}
+
+.id {
+    color: #777;
+    font-size: .9rem;
+}
+
+.tipo {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 6px 15px;
+    border-radius: 30px;
+    font-size: .9rem;
+    font-weight: 600;
+}
+
+/* ================================= */
+/* BOTONES DE TARJETA (DEGRADADO CIAN-ROJO 90º) */
+/* ================================= */
+
+.card button,
+.card .btn-info {
+    margin-top: 15px;
+    width: 100%;
+    border: none;
+    border-radius: 8px;
+    padding: 12px;
+    background: linear-gradient(90deg, #00ffff, #ff0055);
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.6);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+}
+
+.card button:hover,
+.card .btn-info:hover {
+    transform: scale(1.06);
+    box-shadow: 0 4px 12px rgba(0, 255, 255, 0.4);
+    opacity: 0.95;
+}
+
+.card button:active,
+.card .btn-info:active {
+    transform: scale(0.98);
+}
+
+/* ================================= */
+/* PANEL LATERAL DE DETALLE */
+/* ================================= */
+
+.player-detail {
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, .15);
+    position: sticky;
+    top: 20px;
+    height: fit-content;
+}
+
+#detailContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+}
+
+#detailContainer h2 {
+    color: #212121;
+}
+
+.stats {
+    margin-top: 20px;
+    text-align: left;
+}
+
+.stats h3 {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.stat {
+    margin-bottom: 12px;
+}
+
+.stat-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 4px;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+/* Barra con fondo negro */
+.progress {
+    width: 100%;
+    height: 20px;
+    background: #000000;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.progress span {
+    display: block;
+    height: 100%;
+    transition: width 0.4s ease, background-color 0.4s ease;
+}
+
+/* ================================= */
+/* CONTENEDORES E IMÁGENES DE JUGADOR */
+/* ================================= */
+
+.card-img-wrapper {
+    width: 100%;
+    height: 160px;
+    background: #111111;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.player-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+.detail-img-wrapper {
+    width: 100%;
+    height: 200px;
+    background: #111111;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 12px;
+}
+
+.detail-player-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+} 
+
+/* ================================= */
+/* PAGINACIÓN */
+/* ================================= */
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.pagination button {
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    background: #ef5350;
+    color: white;
+    font-weight: 600;
+    transition: .3s;
+}
+
+.pagination button:hover:not(:disabled) {
+    background: linear-gradient(90deg, #00ffff, #ff0055);
+    color: white;
+}
+
+.pagination button:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+/* ================================= */
+/* LOADING */
+/* ================================= */
+
+#loading {
+    position: fixed;
+    inset: 0;
+    background: rgba(255, 255, 255, .9);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    z-index: 999;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.loader {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: 8px solid #ddd;
+    border-top: 8px solid #ef5350;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* ================================= */
+/* ERROR */
+/* ================================= */
+
+#errorMessage {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background: #d32f2f;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 10px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, .25);
+}
+
+/* ================================= */
+/* FOOTER */
+/* ================================= */
+
+footer {
+    margin-top: 30px;
+    background: #212121;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+/* ================================= */
+/* COLORES Y POSICIONES */
+/* ================================= */
+
+.pos-gk {
+    background: #1e88e5;
+    color: #ffffff;
+}
+
+.pos-del {
+    background: #e53935;
+    color: #ffffff;
+}
+
+.pos-def {
+    background: #4caf50;
+    color: #000000;
+}
+
+.pos-med {
+    background: #ffb300;
+    color: #000000;
+}
+
+.pos-default {
+    background: linear-gradient(90deg, #00ffff, #ff0055);
+    color: white;
+}
+
+.dark {
+    background: #212121;
+    color: #ffffff;
+}
+
+/* ================================= */
+/* RESPONSIVE */
+/* ================================= */
+
+@media(max-width:992px) {
+    main {
+        grid-template-columns: 1fr;
+    }
+
+    .player-detail {
+        position: relative;
+        top: 0;
+    }
+}
+
+@media(max-width:768px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .music-player {
+        flex-direction: column;
+    }
+
+    .search {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .search input {
+        width: 100%;
+    }
+}
+
+@media(max-width:480px) {
+    main {
+        padding: 15px;
+    }
+
+    #playerContainer {
+        grid-template-columns: 1fr;
+    }
+
+    .logo h1 {
+        font-size: 1.5rem;
+    }
+}
